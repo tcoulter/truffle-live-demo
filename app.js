@@ -1466,7 +1466,7 @@ var TruffleTerminal = function (_Component) {
           resolve();
         }, 1);
       }).then(function () {
-        return _axios2.default.get("/browser-truffle.js", {
+        return _axios2.default.get("./browser-truffle.js", {
           onDownloadProgress: function onDownloadProgress(progressEvent) {
             var percentCompleted = Math.round(progressEvent.loaded * 100 / progressEvent.total);
             _this3.removeLastLine();
