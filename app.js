@@ -1462,7 +1462,7 @@ var TruffleTerminal = function (_Component) {
         // Not exactly sure why, but the first line won't get written
         // unless I set a timeout and let it figure itself out.
         setTimeout(function () {
-          _this3.writeToTerminal("Downloading Truffle... 0%");
+          _this3.writeToTerminal("Downloading Truffle...");
           resolve();
         }, 1);
       }).then(function () {
@@ -1474,10 +1474,12 @@ var TruffleTerminal = function (_Component) {
             // If that's the case, don't show the progress.
             if (!isFinite(percentCompleted)) {
               percentCompleted = " ";
+            } else {
+              percentCompleted += "%";
             }
 
             _this3.removeLastLine();
-            _this3.writeToTerminal('Downloading Truffle... ' + percentCompleted + '%');
+            _this3.writeToTerminal('Downloading Truffle... ' + percentCompleted);
           }
         });
       }).then(function (response) {
